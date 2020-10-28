@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>box model demo</title>
+    <style>
+      #content-box {
+        width: 100px;
+        height: 100px;
+        padding: 10px;
+        border: 10px solid red;
+        background-color: pink;
+      }
+
+      #border-box {
+        box-sizing: border-box;
+        width: 100px;
+        height: 100px;
+        padding: 10px;
+        border: 10px solid blue;
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content-box">content box</div>
+    <div id="border-box">border box</div>
+    <script>
+      const box1 = document.getElementById("content-box");
+      const box2 = document.getElementById("border-box");
+      console.log(box1.offsetWidth); // 140
+      console.log(box2.offsetWidth); // 100
+    </script>
+  </body>
+</html>
