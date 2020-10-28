@@ -8,9 +8,7 @@
 
 
 
-### Box Model 
-
-<img src="/Users/cocopig/Library/Application Support/typora-user-images/Screen Shot 2020-10-27 at 17.09.49.png" alt="Screen Shot 2020-10-27 at 17.09.49" style="zoom:60%;" />
+### Box Model
 
 All HTML elements can be considered as boxes. The CSS box model is essentially a box that wraps about every HTML element. It consists: margin, border, padding, and the actual content. 
 
