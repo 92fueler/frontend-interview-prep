@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>progress bar</title>
+    <style>
+      #myProgress {
+        width: 100%;
+        background-color: #ddd;
+      }
+      
+      #myBar {
+        width: 1%;
+        height: 30px;
+        background-color: #4CAF50;
+        text-align: center; /*to center the text horizontally*/
+        line-height: 30px; /*to center it vertically*/
+        color: white;
+      }
+      </style>
+      <body>
+      
+      <h1>JavaScript Progress Bar</h1>
+      
+      <div id="myProgress">
+        <div id="myBar">1%</div>
+      </div>
+      
+      <br>
+      <button id='btn'>Click Me</button> 
+      
+      <script>
+      var i = 0;
+      function move() {
+        if (i == 0) {
+          i = 1;
+          var elem = document.getElementById("myBar");
+          var width = 1;
+          var id = setInterval(frame, 10);
+          function frame() {
+            if (width >= 100) {
+              clearInterval(id);
+              i = 0;
+            } else {
+              width++;
+              elem.style.width = width + "%";
+              elem.innerHTML = width + '%'
+            }
+          }
+        }
+      }
+
+      var btn = document.getElementById('btn')
+      btn.addEventListener('click', move)
+      </script>
+      
+      </body>
+</html>
