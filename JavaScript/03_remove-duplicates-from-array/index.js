@@ -1,45 +1,44 @@
-// approach 1: hash table
-const unique1 = function (arr) {
-  const result = {};
-  const newArr = [];
-  for (let i = 0; i < arr.length; i++) {
-    if (!result[arr[i]]) {
-      newArr.push(arr[i]);
-      result[arr[i]] = 1;
+/*
+How to remove duplicates in an array 
+1. new Set() + Array.from() or spread operator
+2. for-loop + sort + two pointer
+3. hash 
+
+*/
+
+// 1. using set()
+var nums = [1, 1, 1, 2, 2, 3];
+var mySet = new Set(nums); // initate a set to remove dups
+var mySet = [...mySet]; // use the spread operator to transform a set into an array
+
+console.log(mySet instanceof Array); // true
+
+// 2. for loop + sort + two pointers
+const unique1 = function (nums) {
+  nums.sort((a, b) => a - b); // sort array
+  var left = 0;
+  var right = 1;
+
+  while (right < nums.length) {
+    if (nums[right] != nums[left]) {
+      left += 1;
+      nums[left] = nums[right];
     }
+    right += 1;
   }
-  return newArr;
-}
+  return nums.slice(0, left + 1);
+};
 
-// approach 2: indexOf 
-const unique2 = function (arr) {
-  const newArr = [];
-  for (let i = 0; i < arr.length; i++) {
-    if (arr.indexOf(arr[i]) === i) {
-      newArr.push(arr[i]);
-    }
+// console.log(unique1(nums));
+
+// 3. hash
+
+const unique2 = function (nums) {
+  obj = {};
+  for (let i = 0; i < nums.length; i++) {
+    obj[nums[i]] = nums[i];
   }
-  return newArr;
-}
+  return Object.keys(obj);
+};
 
-// approach 3: indexOf
-const unique3 = function (arr) {
-  const newArr = [];
-  for (let i = 0; i < arr.length; i++) {
-    if (newArr.indexOf(arr[i]) === -1) {
-      newArr.push(arr[i]);
-    }
-  }
-  return newArr;
-}
-
-// approach 4: set 
-
-// approach 5: filter
-
-
-module.exports = {
-  unique1,
-  unique2,
-  unique3
-}
+console.log(unique2(nums));
